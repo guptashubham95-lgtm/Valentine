@@ -1,32 +1,93 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>💘 A Valentine Surprise 💘</title>
+  <title>💖 A Valentine Surprise 💖</title>
   <style>
     body {
       text-align: center;
-      background: #ffe6e6;
-      font-family: "Arial", sans-serif;
+      background: linear-gradient(to bottom, #ffe6f0, #fff);
+      font-family: Arial, sans-serif;
       color: #b30059;
-      margin-top: 70px;
+      padding: 30px;
     }
-    h1 { font-size: 4rem; }
-    p { font-size: 1.5rem; }
+    h1 {
+      font-size: 2.8rem;
+    }
+    p {
+      font-size: 1.4rem;
+      margin-top: 15px;
+    }
+    button {
+      margin-top: 25px;
+      padding: 14px 28px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 30px;
+      background: #ff4d88;
+      color: white;
+      cursor: pointer;
+    }
     .heart {
+      font-size: 4rem;
       animation: beat 1s infinite;
-      font-size: 5rem;
     }
     @keyframes beat {
       0% { transform: scale(1); }
       50% { transform: scale(1.2); }
       100% { transform: scale(1); }
     }
+    img {
+      width: 260px;
+      border-radius: 20px;
+      margin-top: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
   </style>
 </head>
+
 <body>
+
   <div class="heart">❤️</div>
-  <h1>Happy Valentine’s Day, My Love!</h1>
-  <p>Every moment with you is my favorite. 💕</p>
-  <p>Click ❤️ again when you’re ready 😊</p>
+  <h1 id="title">Hey Ducky…</h1>
+  <p id="text">I made something just for you 💕</p>
+
+  <button onclick="nextStep()">Click again when you’re ready 💌</button>
+
+  <script>
+    let step = 0;
+
+    function nextStep() {
+      step++;
+
+      if (step === 1) {
+        document.getElementById("title").innerText = "Step One 💖";
+        document.getElementById("text").innerText =
+          "Your smile is still my favorite place to get lost.";
+      }
+
+      else if (step === 2) {
+        document.getElementById("title").innerText = "Just us… 💫";
+        document.getElementById("text").innerText =
+          "Through every high and low, I’d still choose you every time.";
+      }
+
+      else if (step === 3) {
+        document.getElementById("title").innerText = "One last click… 🥹";
+        document.getElementById("text").innerText =
+          "This moment, this us, means everything to me.";
+      }
+
+      else {
+        document.body.innerHTML = `
+          <h1>Happy Valentine’s Day, Ducky ❤️</h1>
+          <img src="ducky.jpg" alt="Us together">
+          <p>You are my biggest smile, my safest place, my forever.</p>
+          <p>Love you endlessly 💍💖</p>
+          <div class="heart">❤️❤️❤️</div>
+        `;
+      }
+    }
+  </script>
+
 </body>
 </html>
